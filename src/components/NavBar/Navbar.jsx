@@ -55,6 +55,8 @@ function Navbar({ mode, setMode }) {
     navigate('/prisijungimas')
   }
 
+  console.log('isUserLoggedIn ===', isUserLoggedIn)
+
   return (
     <AppBar position="sticky">
       <Container maxWidth="xl">
@@ -185,35 +187,37 @@ function Navbar({ mode, setMode }) {
               Prisijungti
             </Button>
           )}
-          <Box sx={{ flexGrow: 0, ml: 4 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              <MenuItem onClick={handleCloseUserMenu}>
-                <Typography textAlign="center" onClick={handleLogout}>
-                  Atsijungti
-                </Typography>
-              </MenuItem>
-            </Menu>
-          </Box>
+          {isUserLoggedIn && (
+            <Box sx={{ flexGrow: 0, ml: 4 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: '45px' }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center" onClick={handleLogout}>
+                    Atsijungti
+                  </Typography>
+                </MenuItem>
+              </Menu>
+            </Box>
+          )}
         </Toolbar>
       </Container>
     </AppBar>

@@ -1,9 +1,13 @@
+import { Favorite, FavoriteBorder, Share } from '@mui/icons-material'
 import {
   Box,
   Button,
   Card,
+  CardActions,
   CardContent,
+  Checkbox,
   Container,
+  IconButton,
   Link,
   Table,
   TableBody,
@@ -29,6 +33,8 @@ export default function Feed() {
   )
   const { isUserAdmin, isUserLoggedIn, token } = useAuthContext()
   const navigate = useNavigate()
+
+  console.log(advertisementList)
 
   const deleteAdvertisement = async (advertisementId) => {
     try {
@@ -84,6 +90,7 @@ export default function Feed() {
             <Table>
               <TableHead>
                 <TableRow>
+                  <TableCell></TableCell>
                   <TableCell>
                     <Typography variant="subtitle1" fontWeight="bold">
                       ID
@@ -104,15 +111,33 @@ export default function Feed() {
                       Aprašymas
                     </Typography>
                   </TableCell>
+                  <TableCell>
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      Telefono nr.
+                    </Typography>
+                  </TableCell>
                   <TableCell></TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {filteredAdvertisement.map((advertisement) => (
                   <TableRow key={advertisement.id}>
+                    <TableCell sx={{ width: '100px' }}>
+                      <CardActions disableSpacing>
+                        <IconButton aria-label="add to favorites">
+                          <Checkbox
+                            icon={<FavoriteBorder />}
+                            checkedIcon={<Favorite sx={{ color: 'red' }} />}
+                          />
+                        </IconButton>
+                        <IconButton aria-label="share">
+                          <Share />
+                        </IconButton>
+                      </CardActions>
+                    </TableCell>
                     <TableCell>{advertisement.id}</TableCell>
                     <TableCell>{advertisement.title}</TableCell>
-                    <TableCell>{advertisement.price}</TableCell>
+                    <TableCell>{`${advertisement.price} EUR`}</TableCell>
                     <TableCell>{advertisement.text}</TableCell>
                     <TableCell>{advertisement.phone}</TableCell>
                     <TableCell>

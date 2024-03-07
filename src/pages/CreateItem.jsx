@@ -17,11 +17,13 @@ export default function CreateItem() {
       title: '',
       price: '',
       text: '',
+      phone: '',
     },
     validationSchema: Yup.object({
       title: Yup.string().min(3).max(30).required(),
       price: Yup.string().min(1).max(5).required(),
       text: Yup.string().required(),
+      phone: Yup.string().min(1).max(10).required(),
     }),
     onSubmit: (values) => {
       console.log('values ===', values)
@@ -98,6 +100,21 @@ export default function CreateItem() {
             onChange={formik.handleChange}
             error={formik.touched.text && !!formik.errors.text}
             helperText={formik.touched.text && formik.errors.text}
+          />
+        </Box>
+        <Box mb={2}>
+          <TextField
+            fullWidth
+            id="phone"
+            name="phone"
+            label="Telefono numeris"
+            variant="outlined"
+            margin="normal"
+            value={formik.values.phone}
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+            error={formik.touched.title && !!formik.errors.title}
+            helperText={formik.touched.title && formik.errors.title}
           />
         </Box>
         <Box textAlign="center" mt={2}>

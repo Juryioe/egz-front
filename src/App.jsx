@@ -9,7 +9,6 @@ import { useEffect, useState } from 'react'
 import { Toaster } from 'react-hot-toast'
 import { Route, Routes } from 'react-router-dom'
 import PrivateRoute from './PrivateRoute/PrivateRoute'
-import Add from './components/Add/Add'
 import Navbar from './components/NavBar/Navbar'
 import CreateItem from './pages/CreateItem'
 import Feed from './pages/Feed'
@@ -52,11 +51,10 @@ function App() {
 
             <Route path="/" element={<HomePage />} />
             <Route path="/register" element={<RegisterPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/advertisements" element={<Feed />} />
+            <Route path="/prisijungimas" element={<LoginPage />} />
+            <Route path="/skelbimai" element={<Feed />} />
           </Routes>
         </Container>
-        <Add />
       </Box>
     </ThemeProvider>
   )

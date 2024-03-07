@@ -14,14 +14,14 @@ export default function CreateItem() {
 
   const formik = useFormik({
     initialValues: {
-      firstname: '',
-      lastname: '',
-      email: '',
+      title: '',
+      price: '',
+      text: '',
     },
     validationSchema: Yup.object({
-      firstname: Yup.string().min(3).max(64).required(),
-      lastname: Yup.string().min(3).max(64).required(),
-      email: Yup.string().email().min(3).max(128).required(),
+      title: Yup.string().min(3).max(64).required(),
+      price: Yup.string().min(3).max(64).required(),
+      text: Yup.string().required(), // Update validation schema for text field
     }),
     onSubmit: (values) => {
       console.log('values ===', values)
@@ -55,46 +55,46 @@ export default function CreateItem() {
         <Box mb={2}>
           <TextField
             fullWidth
-            id="firstname"
-            name="firstname"
-            label="Vardas"
+            id="title"
+            name="title"
+            label="Skelbimo pavadinimas "
             variant="outlined"
             margin="normal"
-            value={formik.values.firstname}
+            value={formik.values.title}
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
-            error={formik.touched.firstname && !!formik.errors.firstname}
-            helperText={formik.touched.firstname && formik.errors.firstname}
+            error={formik.touched.title && !!formik.errors.title}
+            helperText={formik.touched.title && formik.errors.title}
           />
         </Box>
         <Box mb={2}>
           <TextField
             fullWidth
-            id="lastname"
-            name="lastname"
-            label="Pavardė"
+            id="price"
+            name="price"
+            label="Pardavimo kaina"
             variant="outlined"
             margin="normal"
-            value={formik.values.lastname}
+            value={formik.values.price}
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
-            error={formik.touched.lastname && !!formik.errors.lastname}
-            helperText={formik.touched.lastname && formik.errors.lastname}
+            error={formik.touched.price && !!formik.errors.price}
+            helperText={formik.touched.price && formik.errors.price}
           />
         </Box>
         <Box mb={3}>
           <TextField
             fullWidth
-            id="email"
-            name="email"
-            label="EL. paštas"
+            id="text"
+            name="text"
+            label="Tekstas"
             variant="outlined"
             margin="normal"
-            value={formik.values.email}
+            value={formik.values.text}
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
-            error={formik.touched.email && !!formik.errors.email}
-            helperText={formik.touched.email && formik.errors.email}
+            error={formik.touched.text && !!formik.errors.text}
+            helperText={formik.touched.text && formik.errors.text}
           />
         </Box>
         <Box textAlign="center" mt={2}>

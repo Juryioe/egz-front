@@ -55,8 +55,6 @@ function Navbar({ mode, setMode }) {
     navigate('/prisijungimas')
   }
 
-  console.log('isUserLoggedIn ===', isUserLoggedIn)
-
   return (
     <AppBar position="sticky">
       <Container maxWidth="xl">
@@ -150,7 +148,7 @@ function Navbar({ mode, setMode }) {
             >
               Skelbimų sąrašas
             </Button>
-            {isUserAdmin && (
+            {isUserLoggedIn && (
               <Button
                 component={Link}
                 to="/create"

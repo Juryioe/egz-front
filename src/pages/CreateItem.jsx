@@ -23,7 +23,7 @@ export default function CreateItem() {
       title: Yup.string().min(3).max(30).required(),
       price: Yup.string().min(1).max(5).required(),
       text: Yup.string().required(),
-      phone: Yup.string().min(1).max(10).required(),
+      phone: Yup.string().min(1).max(20).required(),
     }),
     onSubmit: (values) => {
       console.log('values ===', values)

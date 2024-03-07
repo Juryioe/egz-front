@@ -21,7 +21,7 @@ export default function CreateItem() {
     validationSchema: Yup.object({
       title: Yup.string().min(3).max(64).required(),
       price: Yup.string().min(3).max(64).required(),
-      text: Yup.string().required(), // Update validation schema for text field
+      text: Yup.string().required(),
     }),
     onSubmit: (values) => {
       console.log('values ===', values)

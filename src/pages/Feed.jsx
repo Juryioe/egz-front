@@ -49,9 +49,9 @@ export default function Feed() {
   const filteredAdvertisement = useMemo(() => {
     return advertisementList.filter(
       (ad) =>
-        ad.firstname.toLowerCase().includes(filterValue.toLowerCase()) ||
-        ad.lastname.toLowerCase().includes(filterValue.toLowerCase()) ||
-        ad.email.toLowerCase().includes(filterValue.toLowerCase())
+        ad.title.toLowerCase().includes(filterValue.toLowerCase()) ||
+        ad.price.toLowerCase().includes(filterValue.toLowerCase()) ||
+        ad.text.toLowerCase().includes(filterValue.toLowerCase())
     )
   }, [advertisementList, filterValue])
 
@@ -95,9 +95,9 @@ export default function Feed() {
                 {filteredAdvertisement.map((advertisement) => (
                   <TableRow key={advertisement.id}>
                     <TableCell>{advertisement.id}</TableCell>
-                    <TableCell>{advertisement.firstname}</TableCell>
-                    <TableCell>{advertisement.lastname}</TableCell>
-                    <TableCell>{advertisement.email}</TableCell>
+                    <TableCell>{advertisement.title}</TableCell>
+                    <TableCell>{advertisement.price}</TableCell>
+                    <TableCell>{advertisement.text}</TableCell>
                     <TableCell>
                       {isUserLoggedIn && (
                         <>

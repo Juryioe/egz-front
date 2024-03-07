@@ -19,8 +19,8 @@ export default function CreateItem() {
       text: '',
     },
     validationSchema: Yup.object({
-      title: Yup.string().min(3).max(64).required(),
-      price: Yup.string().min(3).max(64).required(),
+      title: Yup.string().min(3).max(30).required(),
+      price: Yup.string().min(1).max(5).required(),
       text: Yup.string().required(),
     }),
     onSubmit: (values) => {

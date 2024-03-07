@@ -38,7 +38,7 @@ export default function Feed() {
       navigate('/skelbimai')
       toast.success(`Skelbimas ID: ${advertisementId} sėkmingai ištrintas!`)
       const list = advertisementList.filter(
-        (advertisement) => advertisement.id !== advertisement.Id
+        (advertisement) => advertisement.id !== advertisementId
       )
       setAdvertisementList(list)
     } catch (error) {
@@ -78,16 +78,32 @@ export default function Feed() {
         />
       </Box>
 
-      <Card sx={{ mb: 3 }}>
+      <Card sx={{ mt: 2 }}>
         <CardContent>
           <TableContainer>
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>ID</TableCell>
-                  <TableCell>Vardas</TableCell>
-                  <TableCell>Pavardė</TableCell>
-                  <TableCell>El. paštas</TableCell>
+                  <TableCell>
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      ID
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      Pavadinimas
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      Kaina
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography variant="subtitle1" fontWeight="bold">
+                      Aprašymas
+                    </Typography>
+                  </TableCell>
                   <TableCell></TableCell>
                 </TableRow>
               </TableHead>
@@ -98,6 +114,7 @@ export default function Feed() {
                     <TableCell>{advertisement.title}</TableCell>
                     <TableCell>{advertisement.price}</TableCell>
                     <TableCell>{advertisement.text}</TableCell>
+                    <TableCell>{advertisement.phone}</TableCell>
                     <TableCell>
                       {isUserLoggedIn && (
                         <>

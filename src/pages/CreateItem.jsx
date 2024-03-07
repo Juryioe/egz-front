@@ -72,9 +72,10 @@ export default function CreateItem() {
             fullWidth
             id="price"
             name="price"
-            label="Pardavimo kaina"
+            label="Pardavimo kaina EUR"
             variant="outlined"
             margin="normal"
+            type="number"
             value={formik.values.price}
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
@@ -87,9 +88,11 @@ export default function CreateItem() {
             fullWidth
             id="text"
             name="text"
-            label="Tekstas"
+            label="Prekės aprašymas"
             variant="outlined"
             margin="normal"
+            multiline
+            rows={4}
             value={formik.values.text}
             onBlur={formik.handleBlur}
             onChange={formik.handleChange}
